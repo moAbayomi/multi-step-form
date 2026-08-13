@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-blue-50: hsl(231, 100%, 99%);
+    --color-blue-100:  hsl(218, 100%, 97%);
+    --color-blue-200: hsl(206, 94%, 87%);
+    --color-blue-300: hsl(228, 100%, 84%);
+    --color-blue-950: hsl(213, 96%, 18%);
+
+    --color-purple-200:  hsl(229, 24%, 87%);
+    --color-purple-600:  hsl(243, 100%, 62%);
+
+    --color-red-500:  hsl(354, 84%, 57%);
+    --color-grey: hsl(231, 11%, 63%);
+    --color-white: hsl(0, 100%, 100%);
+}
+
+@font-face {
+  font-family: 'UbuntuMedium';
+  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UbuntuBold';
+  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+body {
+    font-family: "UbuntuMedium";
+}
+
+
+.wrapper {
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+.content-box {
+    padding-inline: clamp(10px, 1rem, 1.5rem );
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.step-area {
+    flex: 0 0 auto;
+    width: 100%;
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.step-numbers {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 0.6rem;
+    padding-block: clamp(40px, 15%, 75px);
+}
+
+.step-numbers > .step {
+    width: 35px;
+    height: 35px;
+    border-radius: 10000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : var(--color-white);
+    border: 2px solid var(--color-grey);
+}
+
+.step > span {
+    font-weight: 500;
+}
+
+.form-area {
+    flex: 1;
+    background: red;
+    position: relative;
+}
+
+.form-container {
+    background: var(--color-white);
+    position: absolute;
+    top: -10px;
+}
+
+@media (min-width: 769px) {
+    main {
+        flex-direction: row;
+    }
+
+    .step-area {
+        flex: 0 0 clamp(260px, 25% ,375px);
+    }
+}
