@@ -5,18 +5,31 @@
 }
 
 :root {
-    --color-blue-50: hsl(231, 100%, 99%);
-    --color-blue-100:  hsl(218, 100%, 97%);
-    --color-blue-200: hsl(206, 94%, 87%);
-    --color-blue-300: hsl(228, 100%, 84%);
-    --color-blue-950: hsl(213, 96%, 18%);
+    --blue-950: hsl(213, 96%, 18%);
+    --purple-600: hsl(243, 100%, 62%);
+    --blue-300: hsl(228, 100%, 84%);
+    --blue-200: hsl(206, 94%, 87%);
+    --red-500: hsl(354, 84%, 57%);
+    --grey-500: hsl(231, 11%, 63%);
+    --purple-200: hsl(229, 24%, 87%);
+    --blue-100: hsl(218, 100%, 97%);
+    --blue-50: hsl(231, 100%, 99%);
+    --white: hsl(0, 100%, 100%);
 
-    --color-purple-200:  hsl(229, 24%, 87%);
-    --color-purple-600:  hsl(243, 100%, 62%);
-
-    --color-red-500:  hsl(354, 84%, 57%);
-    --color-grey: hsl(231, 11%, 63%);
-    --color-white: hsl(0, 100%, 100%);
+    --color-primary: var(--purple-600);
+    --color-primary-hover: var(--blue-950); 
+    --color-primary-light: var(--blue-200);
+    
+    --color-text-primary: var(--blue-950);
+    --color-text-secondary: var(--grey-500);
+    --color-text-inverse: var(--white);
+    
+    --color-background-base: var(--white);
+    --color-background-subtle: var(--blue-50);
+    --color-background-elevated: var(--blue-100);
+    --color-border: var(--purple-200);
+    
+    --color-danger: var(--red-500);
 }
 
 @font-face {
@@ -45,6 +58,8 @@ body {
 }
 
 .content-box {
+    display: flex;
+    justify-content: center;
     padding-inline: clamp(10px, 1rem, 1.5rem );
 }
 
@@ -69,34 +84,113 @@ main {
     justify-content: center;
     align-items: start;
     gap: 0.6rem;
-    padding-block: clamp(40px, 15%, 75px);
+    padding-block: clamp(75px, 20%, 100px);
 }
 
-.step-numbers > .step {
-    width: 35px;
-    height: 35px;
+.step-numbers > .step > span {
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 10000px;
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
-    color : var(--color-white);
-    border: 2px solid var(--color-grey);
+    border: 2px solid var(--white);
 }
 
-.step > span {
-    font-weight: 500;
+.step-meta {
+    display: none;
 }
 
 .form-area {
     flex: 1;
-    background: red;
     position: relative;
 }
 
+.form-contents {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--color-primary-light)
+}
+
 .form-container {
-    background: var(--color-white);
+    background: var(--white);
     position: absolute;
-    top: -10px;
+    top: -60px;
+    inset-inline: 16px;
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.form-container h1 {
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-container p {
+    color: var(--grey-500);
+    margin-bottom: 0.5rem;
+}
+
+.form-container .form-content {
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-content .input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.input label {
+    color: var(--color-primary-hover);
+    font-weight: 400;
+}
+
+.input input {
+    border: 1px solid var(--color-text-secondary);
+    height: 2.25rem;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 1rem;
+}
+
+.buttons {
+    margin-top: auto;
+    margin-inline: auto;
+    width: 90%;
+}
+
+.buttons > div {
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 2rem; 
+}
+
+.buttons > div > button {
+    padding: 0.6rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.buttons .next {
+    background: var(--color-primary-hover);
+    color: var(--color-text-inverse);
+}
+
+.buttons .back {
+    color: var(--color-primary-hover);
+    background: var(--color-text-inverse);
 }
 
 @media (min-width: 769px) {
@@ -107,4 +201,54 @@ main {
     .step-area {
         flex: 0 0 clamp(260px, 25% ,375px);
     }
+
+    .step-numbers {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .step {
+        display: flex;
+        gap: 1rem; 
+        justify-content: flex-start;
+        align-items: center;
+        height: 35px;
+    }
+
+    .step-meta {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+   
+    .step-meta p {
+            color: var(--grey-500);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .step-meta .meta {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+  
+        .form-container {
+            position: static;
+        }
+
+        
+
+        .form-contents {
+            background: var(--color-text-inverse);
+        }
+   
 }
