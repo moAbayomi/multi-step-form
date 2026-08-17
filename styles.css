@@ -199,6 +199,7 @@ main {
     }
 
     .step-area {
+        background-image: url("./assets/images/bg-sidebar-desktop.svg");
         flex: 0 0 clamp(260px, 25% ,375px);
     }
 
