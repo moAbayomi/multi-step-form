@@ -111,7 +111,6 @@ main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: var(--color-primary-light)
 }
 
 .form-container {
@@ -162,6 +161,22 @@ main {
     padding-left: 1rem;
 }
 
+.input.has-error input {
+    border: 1px solid var(--color-danger) !important;
+}
+
+.input .error-message {
+    display: none;
+    color: var(--red-500);
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.input.has-error .error-message {
+    display: block;
+}
+
 .form-content .plan {
     display: flex;
     align-items: center;
@@ -170,6 +185,11 @@ main {
     border-radius: 5px;
     width: 100%;
     gap: 1rem;
+}
+
+.plan-selected {
+    border: 1px solid var(--color-text-primary);
+    background: var(--color-background-elevated);
 }
 
 .form-content .plan .plan-details > h3 {
@@ -195,6 +215,14 @@ main {
     display: flex;
     align-items: center;
     padding: 2px;
+}
+
+.toggle-plan-monthly {
+    justify-content: flex-start;
+}
+
+.toggle-plan-yearly {
+    justify-content: flex-end;
 }
 
 .plan-toggle .toggle-plan > div {
@@ -306,7 +334,8 @@ main {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 2.75rem;
+        width: 100%;
         padding: 2rem;
     }
 
@@ -322,6 +351,7 @@ main {
         display: flex;
         flex-direction: column;
         line-height: 1.2;
+        gap: 0.3rem;
         justify-content: flex-start;
         align-items: flex-start;
     }
@@ -337,7 +367,8 @@ main {
     .step-meta .meta {
         color: var(--white);
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        text-transform: uppercase;
     }
 
     .form-container {
