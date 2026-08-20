@@ -187,7 +187,7 @@ main {
     gap: 1rem;
 }
 
-.plan-selected {
+.plan-selected, .addon-selected {
     border: 1px solid var(--color-text-primary);
     background: var(--color-background-elevated);
 }
@@ -317,6 +317,15 @@ main {
 .buttons .back {
     color: var(--color-primary-hover);
     background: var(--color-text-inverse);
+}
+
+.thank-you {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
 }
 
 @media (min-width: 769px) {
